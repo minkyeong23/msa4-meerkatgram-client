@@ -39,7 +39,7 @@ const getNextPage = async () => {
 
 // 라이프 사이클
 onBeforeMount(postIndexStore.getPostPagination);
-
+onBeforeMount(postIndexStore.clearPostIndex);
 </script>
 
 <template>
@@ -58,6 +58,7 @@ onBeforeMount(postIndexStore.getPostPagination);
   :content="'Show more post from mk'"
   @click="getNextPage()"
 />
+
 </template>
 
 <style scoped>
