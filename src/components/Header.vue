@@ -52,7 +52,7 @@ const redirectLogin = () => {
 .header {
   padding: 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .title-box {
