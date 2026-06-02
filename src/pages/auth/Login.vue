@@ -27,9 +27,6 @@ const handleSubmit = async () => {
     // 유효성 검사 실패 패턴
     alert(`${resultValidationEmail}\n${resultValidationPassword}`);
   }
-
-  await authStore.login(loginForm);
-  router.replace('/posts');
 }
 </script>
 

@@ -2,39 +2,17 @@
 import { onBeforeMount, ref } from 'vue';
 import MyButton from '../../components/button/MyButton.vue';
 import { usePostIndexStore } from '../../store/post/userPostIndexStore.js';
+import { useRouter } from 'vue-router';
 
-// ----------- 스토어로 이관 start --------------
-// const posts = ref([]);
-// const isLastPage = ref(false);
-// let currentPage = 0;
-
-// // 함수
-// const getPostPagination = async (page) => {
-//   // 마지막 페이지가 아닐 경우만 실행
-//   if(!isLastPage.value) {
-//     try {
-//       const url = '/api/posts';
-//       const params = {
-//         page,
-//       };
-  
-//       const res = await myAxios.get(url, { params });
-//       const data = res.data.data;
-//       isLastPage.value = data.lastPage;
-//       posts.value.push(...data.posts);
-
-//       currentPage++;
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   }
-// }
-// ----------- 스토어로 이관 end --------------
-
+const router = useRouter();
 const postIndexStore = usePostIndexStore();
 
 const getNextPage = async () => {
   await postIndexStore.getPostPagination(postIndexStore.getNextPageNumber);
+}
+
+const redirectShow = (id) => {
+  router.push(`/posts/${id}`);
 }
 
 // 라이프 사이클
@@ -49,6 +27,7 @@ onBeforeMount(postIndexStore.clearPostIndex);
     v-for="item in postIndexStore.items"
     :key="item.id"
     :style="{backgroundImage: `url(${item.image})`}"
+    @click="redirectShow(item.id)"
   ></div>
 </div>
 <MyButton 
