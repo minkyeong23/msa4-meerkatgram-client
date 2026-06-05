@@ -34,7 +34,8 @@ const getPostPagination = async (page = 1) => {
 
       currentPage.value++;
     } catch (error) {
-      useMyErrorStore().setErrorInfo(error);
+      console.error(error);
+      throw error;
     }
   }
 }

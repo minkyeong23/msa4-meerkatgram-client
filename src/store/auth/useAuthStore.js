@@ -22,22 +22,16 @@ export const useAuthStore = defineStore('authStore', () => {
   const login = async (loginForm) => {
     try {
       const url = '/api/login';
+
       const res = await myAxios.post(url, loginForm);
       const data = res.data.data;
       accessToken.value = data.accessToken;
       userInfo.value = data.user;
       isLoggedIn.value = true;
-
     } catch (error) {
-      console.error(error)
-      if(error.response) {
-        if(error.response.data.code === 'E01') {
-          alert(error.response.data.data);
-          return;
-        }
-      }
+      console.error(error);
 
-      useMyErrorStore().setErrorInfo(error);
+      throw error;
     }
   }
 

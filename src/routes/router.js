@@ -45,6 +45,7 @@ const routes = [
   {
     path: '/errors',
     component: MyError,
+    meta: setMeta(false, false),
   },
 ];
 

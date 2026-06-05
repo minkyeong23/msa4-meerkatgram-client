@@ -21,7 +21,7 @@ export const usePostShowStore = defineStore('postShowStore', () => {
   }
 
   const clearPostShow = () => {
-    post,value = null;
+    post.value = null;
 
   }
 
