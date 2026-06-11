@@ -56,9 +56,9 @@ const handleSubmit = async () => {
     const response = await fileStore.createPost(uploadData);
     alert('작성완료');
 
-    router.replace(`/posts/${response.id}`);
+    router.replace('/');
   } catch (error) {
-  myErrorStore.setErrorInfo();
+  myErrorStore.setErrorInfo(error);
   router.replace('/errors');
   }  
 }
@@ -106,8 +106,8 @@ const handleSubmit = async () => {
   }
 
   .preview {
-    width: 70px;
-    height: 70px;
+    width: 200px;
+    height: 200px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

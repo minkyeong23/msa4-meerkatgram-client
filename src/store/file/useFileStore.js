@@ -33,7 +33,7 @@ export const useFileStore =defineStore('fileStore', () => {
 
     const uploadPost = async (file) => {
     try {
-      const url = 'api/files/posts';
+      const url = '/api/files/posts';
 
       // Form Data 생성
       const data = new FormData();
@@ -43,7 +43,6 @@ export const useFileStore =defineStore('fileStore', () => {
       const config = {
         headers: {
           'Content-Type': 'multipart/form-data'
-
         }
       }
 
@@ -56,7 +55,7 @@ export const useFileStore =defineStore('fileStore', () => {
   }
 
   const createPost = async (postData) => {
-    const url = 'api/posts';
+    const url = '/api/posts';
     const res = await myAxios.post(url, postData);
     return res.data.data;
   }
