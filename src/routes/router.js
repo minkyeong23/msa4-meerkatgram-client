@@ -5,6 +5,7 @@ import Login from "../pages/auth/Login.vue";
 import { useAuthStore } from "../store/auth/useAuthStore.js";
 import PostShow from "../pages/posts/PostShow.vue";
 import Registration from "../pages/auth/Registration.vue";
+import PostUpload from "../pages/posts/PostUpload.vue";
 
 const setMeta = (isAuthenticated, isGestOnly) => {
   return {
@@ -41,6 +42,12 @@ const routes = [
     component: PostShow,
     meta: setMeta(true,false),
   },
+  {
+    path: '/posts/upload',
+    component: PostUpload,
+    meta: setMeta(true,false),
+  },
+  
   // 에러 관련
   {
     path: '/errors',

@@ -51,7 +51,7 @@ const handleSubmit = async () => {
     } else if(data.code === 'E21') {
       alert('잘못된 양식입니다.');
     } else {
-    myErroStore.setErrorInfo();
+    myErrorStore.setErrorInfo();
     router.replace('/errors');
     }
   }
