@@ -1,8 +1,12 @@
 <script setup>
+import router from '../routes/router';
 import { useAuthStore } from '../store/auth/useAuthStore';
 
 const authStore = useAuthStore();
 
+const postUpload = () => {
+  router.push('/posts/upload')
+}
 </script>
 
 <template>
@@ -27,8 +31,9 @@ const authStore = useAuthStore();
           style="background-image: url('/icons/gallery.png');"      
         ></div>
         <div 
+          @click="postUpload()"
           class="bg-image-square redirect-icon-posts-create"
-          style="background-image: url('/icons/plus-sign.png');"      
+          style="background-image: url('/icons/plus-sign.png');"   
         ></div>
         <div 
           class="bg-image-square redirect-icon-users-info"
